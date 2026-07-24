@@ -15,8 +15,8 @@ Fires can be unpredictable, highly dangerous, and unnoticeable until it's too la
 ### Functional Requirements
 
 * **Power Detection & Alerts**: If the machine is powered on, the Blue LED also stays on (so that users are aware the alarm is powered).
-* **Fire Detection & Alerts**: If the sensor values are above boundary (have yet to determine), Red LED and buzzer immediately turn on and remain on.
-* **Neutral and Warning Alerts**: If the sensor values are within the boundary, Green LED turns on and stays on. If the sensor values are within but less than 2 degrees/values off the boundary, a Yellow LED turns on.
+* **Fire Detection & Alerts**: If the sensor values are above boundary (have yet to determine), Red LED turns on and buzzer starts continuously buzzing.
+* **Neutral and Warning Alerts**: If the sensor values are within the boundary, Green LED turns on and stays on. If the sensor values are within but less than 2 degrees/values off the boundary, a Yellow LED turns on and the buzzer starts buzzing off and on.
 
 ### Non-Functional Requirements
 
@@ -24,6 +24,13 @@ Fires can be unpredictable, highly dangerous, and unnoticeable until it's too la
 * **False Alarm Button**: In case of a false alarm, a button can be pressed that will mute the machine for 20 seconds. If it still keeps detecting flames, it will continue buzzing after the 20 seconds. There would be a one minute cooldown between button presses (meaning 40 seconds of true fire alerts with buzzing between them), and the Red LED will still continue flashing throughout the false alarm.
 
 ### Test Cases
+
+| Test Case | Input | Expected Result |
+|-----------|-------|-----------------|
+| There is a fire | Flame sensor detects values above boundary | Red LED and buzzer turns on |
+| There is currently no fire | Flame sensor detects values within boundary | Green LED turns on |
+| A fire might start | Flame sensor detects value at most 2 values short of boundary | Yellow LED turns on and buzzer starts buzzing off and on |
+| Machine is plugged in | Machine gains power | Blue LED turns on |
  
 ## Design
 
