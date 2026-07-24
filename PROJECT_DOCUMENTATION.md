@@ -4,7 +4,7 @@
 
 ### Defining the Purpose
 
-Fires can be unpredictable, highly dangerous, and unnoticeable until it's too late. However, one of the most effective ways to warn anyone of an incoming fire are smoke & fire alarms. I will design an alarm that uses a sensor to detect flames (smoke and heat) and turn on both an LED (visual warning) and buzzer (auditory warning) if any dangerous amounts of smoke and/or heat is detected, alerting anyone in the vicinity. I will also add an LED system to show how 
+Fires can be unpredictable, highly dangerous, and unnoticeable until it's too late. However, one of the most effective ways to warn anyone of an incoming fire are smoke & fire alarms. I will design an alarm that uses a sensor to detect flames (smoke and heat) and turn on both an LED (visual warning) and buzzer (auditory warning) if any dangerous amounts of smoke and/or heat is detected, alerting anyone in the vicinity.
 
 ### Key Actions
 
@@ -27,11 +27,12 @@ Fires can be unpredictable, highly dangerous, and unnoticeable until it's too la
 
 | Test Case | Input | Expected Result |
 |-----------|-------|-----------------|
-| There is a fire | Flame sensor detects values above boundary | Red LED and buzzer turns on |
 | There is currently no fire | Flame sensor detects values within boundary | Green LED turns on |
 | A fire might start | Flame sensor detects value at most 2 values short of boundary | Yellow LED turns on and buzzer starts buzzing off and on |
 | Machine is plugged in | Machine gains power | Blue LED turns on |
  
+## Algorithms
+
 ## Design
 
 ## Development and Integration
