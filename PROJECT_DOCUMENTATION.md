@@ -33,6 +33,53 @@ Fires can be unpredictable, highly dangerous, and unnoticeable until it's too la
  
 ## Algorithms
 
+### Pseudocode
+
+BEGIN clear_outputs()  
+    yellow_led.off  
+    red_led.off  
+    green_led.off  
+    buzzer.off  
+END clear_outputs()
+
+BEGIN flame_detected()
+    clear_outputs()
+    red_led.on
+    buzzer.on
+END flame_detected()
+
+BEGIN near_flame()
+    clear_outputs()
+    yellow_led.on
+    WHILE true THEN
+        buzzer.on
+        wait(1)
+        buzzer.off
+        wait(1)
+    ENDWHILE
+END near_flame()
+
+BEGIN
+clear_outputs()
+    WHILE true THEN
+        blue_led.on
+        READ sensor_values
+        IF sensor_values >= boundary
+            flame_detected()
+        ELSE THEN
+            IF sensor_values >= (boundary - 2) THEN
+                near_flame()
+            ELSE THEN
+            green_led.on
+            ENDIF
+        ENDIF
+    ENDWHILE
+END
+
+### Flowcharts
+
+![Subroutine Flowchart](images/9CT1A_Assessment_Task_2_Subroutine_Flowchart_Image.png)
+
 ## Design
 
 ## Development and Integration
