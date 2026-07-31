@@ -42,13 +42,13 @@ BEGIN clear_outputs()
     buzzer.off  
 END clear_outputs()  
   
-> BEGIN flame_detected()  
+BEGIN flame_detected()  
     clear_outputs()  
     red_led.on  
     buzzer.on  
 END flame_detected()  
   
-> BEGIN potential_flame()  
+BEGIN potential_flame()  
     clear_outputs()  
     yellow_led.on  
     WHILE true THEN  
@@ -59,10 +59,10 @@ END flame_detected()
     ENDWHILE  
 END potential_flame()  
   
-> BEGIN  
+BEGIN  
 clear_outputs()  
+blue_led.on  
     WHILE true THEN  
-        blue_led.on  
         READ sensor_values  
         IF sensor_values >= boundary  
             flame_detected()  
