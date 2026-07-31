@@ -48,7 +48,7 @@ BEGIN flame_detected()
     buzzer.on
 END flame_detected()
 
-BEGIN near_flame()
+BEGIN potential_flame()
     clear_outputs()
     yellow_led.on
     WHILE true THEN
@@ -57,7 +57,7 @@ BEGIN near_flame()
         buzzer.off
         wait(1)
     ENDWHILE
-END near_flame()
+END potential_flame()
 
 BEGIN
 clear_outputs()
@@ -68,7 +68,7 @@ clear_outputs()
             flame_detected()
         ELSE THEN
             IF sensor_values >= (boundary - 2) THEN
-                near_flame()
+                potential_flame()
             ELSE THEN
             green_led.on
             ENDIF
@@ -79,6 +79,7 @@ END
 ### Flowcharts
 
 ![Subroutine Flowchart](images/9CT1A_Assessment_Task_2_Subroutine_Flowchart_Image.png)
+![Main Routine Flowchart](images/9CT1A_Assessment_Task_2_Main_Routine_Functions.png)
 
 ## Design
 
