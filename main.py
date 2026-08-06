@@ -1,42 +1,39 @@
 # import stuff here
 
-# setup here 
+from machine import Pin
+import time
 
-blueL = 1
-greenL = 1
-yellowL = 0
-redL = 0
-buzzer = 0
-boundary = 147
+# setup here 
 
 # clear_outputs function here
 
-def clear_outputs(a, b, c, d):
-    a = 0
+def clear_outputs(g, y, r, b):
+    g = 0
+    y = 0
+    r = 0
     b = 0
-    c = 0
-    d = 0
 
 # flame_detected function here
 
-def flame_detected(x, y):
-    x = 1
-    y = 1
+def flame_detected(r, b):
+    while r == 0:
+        r = r + 1
+    while b == 0:
+        b = b + 1
+        print(b)
 
 # potential_flame function here
+
+def potential_flame(y, b):
+    clear_outputs(greenL, yellowL, redL, buzzer)
+    while y == 0:
+        y = 1
+    while y == 1:
+
 
 # all other necessary functions here
 
 # main routine here
 
-
-clear_outputs(greenL, yellowL, redL, buzzer)
-sensor_values = float(input("sensor\n"))
-if sensor_values >= 147:
-    clear_outputs(greenL, yellowL, redL, buzzer)
-    flame_detected(redL, buzzer)                    # This isn't working for some reason, the variables still remain at 0 rather than 1.
-    print(redL, buzzer)
-elif sensor_values >= (147 - 12):
-    print("potential_flame")
-else:
-    print("all_ok")
+led = Pin(15, Pin.OUT)	# Sets up pin 15 to power in order to turn on the blue LED
+led.value(1)			# Turn on the pin
