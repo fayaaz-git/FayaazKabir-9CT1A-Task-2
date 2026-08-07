@@ -49,4 +49,4 @@ Hopefully it works, I need to see what values they hold"""
 while True:
     sensor_value = sensor_pin.read_u15()	# Supposed to read the value the sensor receives
     print(sensor_value)
-    time.sleep(0.5)
+    time.sleep(0.5)"""
