@@ -87,6 +87,26 @@ END
 
 ## Testing and Debugging
 
+### Test Case 1: Receiving Sensor Values
+
+14/08 - Test case failed miserably. Turns out I have no idea how to wire it up - all I know is that Ground goes into the negative output (I did some circuit stuff in Engineering), but it makes no sense because there are *four pins* - a positive one (pretty easy), a ground one, a DO pin (???) and AO (???).
+
+```
+sensor_pin = ADC(26) """This pin is connected to the ground pin of the pico"""
+
+"""Gonna try to test the flame sensor here.
+Hopefully it works, I need to see what values they hold"""
+
+sensor_values = sensor_pin.read_u16()				"""I'm pretty sure this receives sensor values?"""
+print(sensor_values)
+
+"""while True:
+    sensor_value = sensor_pin.read_u15()	# Supposed to read the value the sensor receives
+    print(sensor_value)
+    time.sleep(0.5)"""
+```
+
+
 ## Evaluations
 
 ### Peer Eval
