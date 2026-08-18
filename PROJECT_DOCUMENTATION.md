@@ -89,9 +89,12 @@ END
 
 ### Test Case 1: Receiving Sensor Values
 
-14/08 - Test case failed miserably. Turns out I have no idea how to wire it up - all I know is that Ground goes into the negative output (I did some circuit stuff in Engineering), but it makes no sense because there are *four pins* - a positive one (pretty easy), a ground one, a DO pin (???) and AO (???).
+**14/08** - Test case failed miserably. Turns out I have no idea how to wire it up - all I know is that Ground goes into the negative output (I did some circuit stuff in Engineering), but it makes no sense because there are *four pins* - a positive one (pretty easy), a ground one, a DO pin (???) and AO (???).
 
 ```
+
+from machine import Pin # this is where you control inputs and outputs in a Pico
+import time
 sensor_pin = ADC(26) """This pin is connected to the ground pin of the pico"""
 
 """Gonna try to test the flame sensor here.
@@ -106,6 +109,11 @@ print(sensor_values)
     time.sleep(0.5)"""
 ```
 
+**18/08** - Finally figured out that AO and DO stand for analog and digital inputs. Me and my partner did some testing and THE WIRING FINALLY WORKS - we finally got some values from the sensor!
+
+### Test Case 2: Blue LED On Upon Machine On
+
+**18/08** - Did it first try. It was much easier than I expected.
 
 ## Evaluations
 
