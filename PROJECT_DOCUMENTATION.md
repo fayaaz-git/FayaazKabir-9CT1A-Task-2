@@ -16,7 +16,7 @@ Fires can be unpredictable, highly dangerous, and unnoticeable until it's too la
 
 * **Power Detection & Alerts**: If the machine is powered on, the Blue LED also stays on (so that users are aware the alarm is powered).
 * **Fire Detection & Alerts**: If the sensor values are above boundary (have yet to determine), Red LED turns on and buzzer starts continuously buzzing.
-* **Neutral and Warning Alerts**: If the sensor values are within the boundary, Green LED turns on and stays on. If the sensor values are within but less than 2 degrees/values off the boundary, a Yellow LED turns on and the buzzer starts buzzing off and on.
+* **Neutral and Warning Alerts**: If the sensor values are within the boundary, Green LED turns on and stays on.
 
 ### Non-Functional Requirements
 
@@ -81,10 +81,6 @@ END
 ![Subroutine Flowchart](images/9CT1A_Assessment_Task_2_Subroutine_Flowchart_Image.png)
 ![Main Routine Flowchart](images/9CT1A_Assessment_Task_2_Main_Routine_Functions.png)
 
-## Design
-
-## Development and Integration
-
 ## Testing and Debugging
 
 ### Test Case 1: Receiving Sensor Values
@@ -114,6 +110,14 @@ print(sensor_values)
 ### Test Case 2: Blue LED On Upon Machine On
 
 **18/08** - Did it first try. It was much easier than I expected.
+
+### Test Case 3: Warining (Red LED) and Neutral (Green LED) Alerts
+
+**19/18** - Code was easy, but the wiring was a pain in the neck. Turns out when you list a pin number in Thonny, it refers to GPIO pins rather than the physical pin itself, and GND pins don't cooperate. Finally though, I got the green and red LEDs to work... mostly, as the Red LED seems to remain constantly on despite the sensor and Green LED working completely fine.
+
+### Test Case 4: Potential Flame Warnings (Yellow LED)
+
+**19/18** - When I initially wrote out my functional and non-functional requirements, I believed that actual analog values rather than two digital values would exist (thinking about it now it doesn't make sense - what else would a 'flame sensor' detect?). This is why I included the idea of a yellow LED that flashes on if the values are near the boundary (within 2 values of the boundary, as planned). However, as I started wiring up the entire machine, I discovered that the yellow LED would be completely unfeasible, and therefore I have dropped it from the functional requirements.
 
 ## Evaluations
 

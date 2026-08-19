@@ -1,49 +1,31 @@
-# everything required is imported here
+def clear_outputs(x, y):
+    x.value(0)
+    y.value(0)
 
-from machine import Pin # this is where you control inputs and outputs in a 
+def flame_detected(a, b):
+    print('flame')				
+    a.value(0)
+    b.value(1)
+
+# import everything needed
+from machine import Pin
 import time
 
-# setup here 
+sensor_pin = Pin(16, Pin.IN, Pin.PULL_DOWN)		# this is the pin that reads sensor values
 
-# clear_outputs function here
+green_led = Pin(14, Pin.OUT)
+red_led = Pin(15, Pin.OUT)
 
-def clear_outputs(g, y, r, b):
-    g = 0
-    y = 0
-    r = 0
-    b = 0
+"""For lines 16 and 20 (I can't write it within the while loop because it throws off Thonny's indentation thingy):
+the print value checks if the sensor properly works (by printing it in the shell where only I can check)"""
 
-# flame_detected function here
-
-def flame_detected(r, b):
-    while r == 0:
-        r = r + 1
-    while b == 0:
-        b = b + 1
-        print(b)
-
-# potential_flame function here
-
-def potential_flame(y, b):
-    clear_outputs(greenL, yellowL, redL, buzzer)
-    while y == 0:
-        y = 1
-    while y == 1:
-
-
-# all other necessary functions here
-
-# main routine here
-
-sensor_pin = ADC(26) """This pin is connected to the ground pin of the pico"""
-
-"""Gonna try to test the flame sensor here.
-Hopefully it works, I need to see what values they hold"""
-
-sensor_values = sensor_pin.read_u16()				"""I'm pretty sure this receives sensor values?"""
-print(sensor_values)
-
-"""while True:
-    sensor_value = sensor_pin.read_u15()	# Supposed to read the value the sensor receives
-    print(sensor_value)
-    time.sleep(0.5)"""
+while True:
+    time.sleep(0.5)					# small break between flame detections
+    if sensor_pin.value() == 1:
+        clear_outputs(green_led, red_led)
+        flame_detected(green_led, red_led)
+    else:
+        print("no flame")
+        clear_outputs(green_led, red_led)
+        green_led.value(1)
+       
