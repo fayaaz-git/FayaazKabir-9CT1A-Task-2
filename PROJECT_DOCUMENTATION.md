@@ -109,18 +109,71 @@ print(sensor_values)
 
 ### Test Case 2: Blue LED On Upon Machine On
 
-**18/08** - Did it first try. It was much easier than I expected.
+**18/08** - Did it first try. It was much easier than I expected. You don't even need code, since there is a pin that just outputs power constantly on the Pico.
 
 ### Test Case 3: Warining (Red LED) and Neutral (Green LED) Alerts
 
-**19/18** - Code was easy, but the wiring was a pain in the neck. Turns out when you list a pin number in Thonny, it refers to GPIO pins rather than the physical pin itself, and GND pins don't cooperate. Finally though, I got the green and red LEDs to work... mostly, as the Red LED seems to remain constantly on despite the sensor and Green LED working completely fine.
+**19/08** - Code was easy, but the wiring was a pain in the neck. Turns out when you list a pin number in Thonny, it refers to GPIO pins rather than the physical pin itself, and GND pins don't cooperate. Finally though, I got the green and red LEDs to work... mostly, as the Red LED seems to remain constantly on despite the sensor and Green LED working completely fine.
+
+``` 
+
+# function setup here
+
+"""x and y represents pins 14 and 15, respectively
+as you can guess, this turns off all outputs - the green and red LEDs and the buzzer"""
+
+def clear_outputs(x, y):	
+    x.value(0)				# pin 14 turns off
+    y.value(0)				# pin 15 turns off
+
+def flame_detected(a, b):	# a and b represents the same aforementioned pins
+    print('flame')				
+    a.value(0)
+    b.value(1)
+
+# import everything needed
+from machine import Pin
+import time
+
+sensor_pin = Pin(16, Pin.IN, Pin.PULL_DOWN)		# this is the pin that reads sensor values
+
+green_led = Pin(14, Pin.OUT)
+red_led = Pin(15, Pin.OUT)
+
+"""For lines 16 and 20 (I can't write it within the while loop because it throws off Thonny's indentation thingy):
+the print value checks if the sensor properly works (by printing it in the shell where only I can check)"""
+
+while True:
+    time.sleep(0.5)					# small break between flame detections
+    if sensor_pin.value() == 1:
+        clear_outputs(green_led, red_led)
+        flame_detected(green_led, red_led)
+    else:
+        print("no flame")
+        clear_outputs(green_led, red_led)
+        green_led.value(1)
+       
+```
+
+**20/08** - Incorporated the buzzer. Will have to test it at home, because I don't think the teacher wil allow fires in the computer lab.
 
 ### Test Case 4: Potential Flame Warnings (Yellow LED)
 
-**19/18** - When I initially wrote out my functional and non-functional requirements, I believed that actual analog values rather than two digital values would exist (thinking about it now it doesn't make sense - what else would a 'flame sensor' detect?). This is why I included the idea of a yellow LED that flashes on if the values are near the boundary (within 2 values of the boundary, as planned). However, as I started wiring up the entire machine, I discovered that the yellow LED would be completely unfeasible, and therefore I have dropped it from the functional requirements.
+**19/08** - When I initially wrote out my functional and non-functional requirements, I believed that actual analog values rather than two digital values would exist (thinking about it now it doesn't make sense - what else would a 'flame sensor' detect?). This is why I included the idea of a yellow LED that flashes on if the values are near the boundary (within 2 values of the boundary, as planned). However, as I started wiring up the entire machine, I discovered that the yellow LED would be completely unfeasible, and therefore I have dropped it from the functional requirements.
 
 ## Evaluations
 
 ### Peer Eval
+
+| Evaluator | Plus | Minus | Implication |
+|-----------|------|-------|-------------|
+| Ronav M   | Flame sensor system is able to detect presence of flames in vicinity, alerting the user using led lights, with green reflecting that status is safe while the red led alerts the user that a fire has been detected in surroundings, working without malfunctioning and detecting the smallest traces of fire. | The red LED occasionally flickers randomly, which is a bit misleading | The flame sensor system using wiring and coding was succesfully able to detect and alert the user about presence of fire in surroundings, shwoing how functional and sophiticated this project is |
+
+
+
+
+| Evaluator | Plus | Minus | Implication |
+|-----------|------|-------|-------------|
+|The use of diffrent coloured LEDs is smart, allowing the user to clearly understand the  | Code could be more clean and the, commments could be more descriptive   | Blue LED turns on |  |
 
 ### Final Eval

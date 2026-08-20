@@ -1,8 +1,13 @@
-def clear_outputs(x, y):
-    x.value(0)
-    y.value(0)
+# function setup here
 
-def flame_detected(a, b):
+"""x and y represents pins 14 and 15, respectively
+as you can guess, this turns off all outputs - the green and red LEDs and the buzzer"""
+
+def clear_outputs(x, y):	
+    x.value(0)				# pin 14 turns off
+    y.value(0)				# pin 15 turns off
+
+def flame_detected(a, b):	# a and b represents the same aforementioned pins
     print('flame')				
     a.value(0)
     b.value(1)
