@@ -209,7 +209,7 @@ while True:
 | Evaluator | Plus | Minus | Implication |
 |-----------|------|-------|-------------|
 | Ronav M   | Flame sensor system is able to detect presence of flames in vicinity, alerting the user using led lights, with green reflecting that status is safe while the red led alerts the user that a fire has been detected in surroundings, working without malfunctioning and detecting the smallest traces of fire. | The red LED occasionally flickers randomly, which is a bit misleading | The flame sensor system using wiring and coding was succesfully able to detect and alert the user about presence of fire in surroundings, shwoing how functional and sophiticated this project is |
-| Alfonso D | The use of diffrent coloured LEDs is smart, allowing the user to clearly understand the machine | Code could be more clean and the commments could be more descriptive   | Blue LED turns on |
+| Michael K | Positive: The solution is simple and effective, and does detect when a flame is lit. The LEDs colours make logical sense, allowing me to know when the flame is lit.  | The project’s sort of redundant, considering if you can see the LEDs being on, you can also already see if there’s a flame lit. | The solution works and completes it's purpose of detecting and displaying when an LED is on, to improve the system I would recommend adding a buzzer to the system to add some functionality if the person is out of sight of the LEDs. |
 
 ### Final Eval
 
@@ -231,7 +231,7 @@ The machine works rather well compared to its project management. It works as pl
 
 #### In Relation to Peer Feedback
 
-The peer feedback identifies many positives and issues that the machine has. The overall functionability with the blue, red and green LEDs have been noted as a good inclusion, with minor issues mainly involving the code and notes on the code. 
+The peer feedback identifies many positives and issues that the machine has. The overall functionability with the blue, red and green LEDs have been noted as a good inclusion, with the main issue being accessibility, as there is only a visual warning. This is already an issue I have tried to address through the attempted but failed auditory warning through the buzzer. 
 
 #### Future Improvements on Final Product
 
