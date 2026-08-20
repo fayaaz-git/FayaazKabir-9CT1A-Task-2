@@ -1,13 +1,13 @@
 # function setup here
 
-"""x and y represents pins 14 and 15, respectively
+"""x, y and z represents GPIO pins 14, 15, and 13 respectively
 as you can guess, this turns off all outputs - the green and red LEDs and the buzzer"""
 
 def clear_outputs(x, y):	
     x.value(0)				# pin 14 turns off
     y.value(0)				# pin 15 turns off
 
-def flame_detected(a, b):	# a and b represents the same aforementioned pins
+def flame_detected(a, b):	# a, b and c represents the same aforementioned pins
     print('flame')				
     a.value(0)
     b.value(1)
@@ -34,3 +34,4 @@ while True:
         clear_outputs(green_led, red_led)
         green_led.value(1)
        
+
